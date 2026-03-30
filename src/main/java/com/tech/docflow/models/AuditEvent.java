@@ -1,6 +1,6 @@
 package com.tech.docflow.models;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.Id;
@@ -45,5 +45,5 @@ public class AuditEvent {
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
-    private LocalDateTime timestamp;
+    private Instant timestamp;
 }

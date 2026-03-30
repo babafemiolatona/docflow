@@ -1,6 +1,6 @@
 package com.tech.docflow.repository;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,8 +21,8 @@ public interface DocumentRepository extends JpaRepository<Document, Long> {
     @Query("SELECT d FROM Document d WHERE d.owner = :owner AND d.createdAt >= :startDate AND d.createdAt <= :endDate")
     List<Document> findByOwnerAndDateRange(
         @Param("owner") User owner,
-        @Param("startDate") LocalDateTime startDate,
-        @Param("endDate") LocalDateTime endDate
+        @Param("startDate") Instant startDate,
+        @Param("endDate") Instant endDate
     );
 
 }

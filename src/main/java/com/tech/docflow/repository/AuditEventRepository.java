@@ -1,6 +1,6 @@
 package com.tech.docflow.repository;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,8 +17,8 @@ public interface AuditEventRepository extends JpaRepository<AuditEvent, Long> {
     List<AuditEvent> findByEntityAndDateRange(
         @Param("entityType") String entityType,
         @Param("entityId") Long entityId,
-        @Param("startTime") LocalDateTime startTime,
-        @Param("endTime") LocalDateTime endTime
+        @Param("startTime") Instant startTime,
+        @Param("endTime") Instant endTime
     );
     
 }
