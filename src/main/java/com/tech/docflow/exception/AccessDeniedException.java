@@ -1,8 +1,8 @@
 package com.tech.docflow.exception;
 
-public class SecurityException extends RuntimeException {
+public class AccessDeniedException extends RuntimeException {
     
-    public SecurityException(String message) {
+    public AccessDeniedException(String message) {
         super(message);
     }
     
