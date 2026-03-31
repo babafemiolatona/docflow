@@ -3,7 +3,6 @@ package com.tech.docflow.models;
 import java.time.Instant;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

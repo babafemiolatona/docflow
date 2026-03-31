@@ -32,6 +32,12 @@ public class DocumentDTO {
 
     private String metadataJson;
 
+    private String fileUrl;
+
+    private String fileChecksum;
+
+    private String originalFileName;
+
     private Instant createdAt;
 
     private Instant updatedAt;

@@ -3,14 +3,14 @@ spring:
     name: document-management-system
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/docflowdb
+    url: jdbc:postgresql://postgres:5432/docflowdb
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: validate  # Use 'update' for development, but prefer migrations in production
+      ddl-auto: update  # Auto-creates/updates schema on startup
     show-sql: false
     properties:
       hibernate:
@@ -19,7 +19,7 @@ spring:
 
   data:
     redis:
-      host: localhost
+      host: redis
       port: 6379
       timeout: 2000
       jedis:
@@ -36,8 +36,8 @@ jwt:
 
 server:
   port: 8080
-  servlet:
-    context-path: /api
+  # servlet:
+  #   context-path: /api
 
 logging:
   level:
@@ -56,12 +56,12 @@ management:
 
 file:
   storage:
-    type: minio
+    type: ${FILE_STORAGE_TYPE:minio}
     local:
-      upload-dir: ./uploads  # For local storage fallback
+      upload-dir: ${FILE_STORAGE_LOCAL_UPLOAD_DIR:./uploads}
     minio:
-      endpoint: http://localhost:9000
-      access-key: minioadmin
-      secret-key: minioadmin123
-      bucket-name: documents
-      region: us-east-1
+      endpoint: ${MINIO_ENDPOINT:http://minio:9000}
+      access-key: ${MINIO_ACCESS_KEY}
+      secret-key: ${MINIO_SECRET_KEY}
+      bucket-name: ${MINIO_BUCKET_NAME}
+      region: ${MINIO_REGION}

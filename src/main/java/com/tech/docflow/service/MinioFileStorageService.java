@@ -115,7 +115,7 @@ public class MinioFileStorageService implements FileStorageService {
     @Override
     public String getFileUrl(String filePath) {
         try {
-            return minioClient.getPresignedObjectUrl(
+            String presignedUrl = minioClient.getPresignedObjectUrl(
                 GetPresignedObjectUrlArgs.builder()
                     .method(Method.GET)
                     .bucket(bucketName)
@@ -123,6 +123,8 @@ public class MinioFileStorageService implements FileStorageService {
                     .expiry(24, TimeUnit.HOURS)
                     .build()
             );
+            
+            return presignedUrl.replace("http://minio:9000", "http://localhost:9000");
         } catch (Exception e) {
             throw new RuntimeException("Error generating file URL: " + e.getMessage(), e);
         }
