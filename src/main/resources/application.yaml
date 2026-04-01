@@ -29,6 +29,12 @@ spring:
           min-idle: 0
           max-wait: -1ms
 
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USER}
+    password: ${RABBITMQ_PASSWORD}
+
 jwt:
   secret: ${JWT_SECRET}
   expiration: ${JWT_ACCESS_TOKEN_EXPIRATION}
@@ -65,3 +71,12 @@ file:
       secret-key: ${MINIO_SECRET_KEY}
       bucket-name: ${MINIO_BUCKET_NAME}
       region: ${MINIO_REGION}
+
+ocr:
+  max-retries: 3
+  retry-delay-seconds: 10
+  tika:
+    enabled: true
+  tesseract:
+    enabled: true
+    data-path: /usr/share/tesseract-ocr/4.00/tessdata

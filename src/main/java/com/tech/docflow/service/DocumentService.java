@@ -32,6 +32,7 @@ public class DocumentService{
     private final UserRepository userRepository;
     private final FileStorageService fileStorageService;
     private final AuditEventRepository auditEventRepository;
+    private final OcrService ocrService;
 
     @Transactional
     public DocumentDTO uploadDocument(String ownerEmail, String title, DocumentType documentType, 
@@ -64,6 +65,7 @@ public class DocumentService{
             document.setFileChecksum(fileChecksum);
 
             Document saved = documentRepository.save(document);
+            ocrService.submitForOcr(saved.getId());
 
             AuditEvent event = new AuditEvent();
             event.setActor(owner);

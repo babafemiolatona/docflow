@@ -3,7 +3,6 @@ package com.tech.docflow.models;
 import lombok.*;
 
 @Getter
-@AllArgsConstructor
 public enum DocumentStatus {
     
     UPLOADED("Document uploaded, pending processing"),
@@ -16,4 +15,8 @@ public enum DocumentStatus {
     ARCHIVED("Document archived, no longer active");
 
     private final String description;
+    
+    DocumentStatus(String description) {
+        this.description = description;
+    }
 }

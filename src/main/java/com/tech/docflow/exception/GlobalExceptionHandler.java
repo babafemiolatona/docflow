@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> handleAccessDeniedException(SecurityException ex) {
         ErrorResponse errorResponse = new ErrorResponse(
-            "Access Denied",
+            "ACCESS_DENIED",
             ex.getMessage()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidCredentialsException.class)
     public ResponseEntity<ErrorResponse> handleInvalidCredentialsException(InvalidCredentialsException ex) {
         ErrorResponse errorResponse = new ErrorResponse(
-            "Invalid Credentials",
+            "INVALID_CREDENTIALS",
             ex.getMessage()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<ErrorResponse> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
         ErrorResponse errorResponse = new ErrorResponse(
-            "User Already Exists",
+            "USER_ALREADY_EXISTS",
             ex.getMessage()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex) {
         ErrorResponse errorResponse = new ErrorResponse(
-            "Resource Not Found",
+            "RESOURCE_NOT_FOUND",
             ex.getMessage()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
@@ -51,7 +51,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleGeneralException(
             Exception ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse(
-            "Internal Server Error",
+            "INTERNAL_SERVER_ERROR",
             ex.getMessage()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
