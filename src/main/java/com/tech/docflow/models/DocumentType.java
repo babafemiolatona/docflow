@@ -8,6 +8,7 @@ public enum DocumentType {
     
     INVOICE("Invoice"),
     CONTRACT("Contract"),
+    RESUME("Resume"),
     FORM("Form"),
     COMPLIANCE_DOCUMENT("Compliance Document"),
     OTHER("Other");

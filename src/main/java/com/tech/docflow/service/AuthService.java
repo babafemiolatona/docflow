@@ -18,7 +18,6 @@ import com.tech.docflow.dto.RegisterResponse;
 import com.tech.docflow.exception.InvalidCredentialsException;
 import com.tech.docflow.exception.UserAlreadyExistsException;
 import com.tech.docflow.models.User;
-import com.tech.docflow.models.UserRole;
 import com.tech.docflow.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -43,7 +42,8 @@ public class AuthService {
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(UserRole.APPROVER);
+        user.setRole(request.getRole());
+        user.setActive(true);
         userRepository.save(user);
 
         return new RegisterResponse("User registered successfully");

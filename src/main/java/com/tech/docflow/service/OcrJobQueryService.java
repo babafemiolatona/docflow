@@ -14,7 +14,6 @@ import com.tech.docflow.models.OcrResult;
 import com.tech.docflow.repository.DocumentRepository;
 import com.tech.docflow.repository.OcrJobRepository;
 import com.tech.docflow.repository.OcrResultRepository;
-import com.tech.docflow.repository.UserRepository;
 
 import com.tech.docflow.exception.AccessDeniedException;
 import com.tech.docflow.exception.ResourceNotFoundException;
@@ -28,7 +27,6 @@ public class OcrJobQueryService {
     private final OcrJobRepository ocrJobRepository;
     private final OcrResultRepository ocrResultRepository;
     private final DocumentRepository documentRepository;
-    private final UserRepository userRepository;
     private final OcrService ocrService;
     
     @Transactional(readOnly = true)
