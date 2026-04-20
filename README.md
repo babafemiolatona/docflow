@@ -4,7 +4,7 @@ An enterprise-grade document processing platform that combines OCR technology, A
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **Document Processing Pipeline** - Upload → OCR (Tesseract) → Field Extraction (Phi LLM) → Approval Workflows
 - **Intelligent Field Extraction** - LLM-based extraction with text chunking, keyword filtering and confidence scoring
@@ -17,7 +17,7 @@ An enterprise-grade document processing platform that combines OCR technology, A
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### System Flow
 
