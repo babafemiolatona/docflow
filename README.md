@@ -21,9 +21,9 @@ An enterprise-grade document processing platform that combines OCR technology, A
 ### System Flow
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    User Uploads Document                        │
-└────────────────┬────────────────────────────────────────────────┘
+┌──────────────────────────────────────────┐
+│         User Uploads Document            │
+└────────────────┬─────────────────────────┘
                  │
                  ▼
         ┌────────────────────┐
@@ -121,7 +121,7 @@ An enterprise-grade document processing platform that combines OCR technology, A
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone Repository
 ```bash
