@@ -175,3 +175,67 @@ docker compose down
 # Stop services and remove volumes
 docker compose down -v
 ```
+---
+
+## Configuration
+
+### Application Properties (`application.yaml`)
+
+Key configurations you may need to adjust:
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/docflowdb
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  
+  jpa:
+    hibernate:
+      ddl-auto: update  # 'create' for fresh schema, 'update' for existing
+  
+  data:
+    redis:
+      host: redis
+      port: 6379
+  
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+
+server:
+  port: 8080
+```
+
+### Ollama Configuration
+
+The application connects to Ollama at `http://ollama:11434` (Docker) or `http://localhost:11434` (local):
+
+- **Model**: Phi 2.7B quantized (Q4_0)
+- **Pre-warmup**: Runs on app startup (blocks until model is ready)
+- **Keep-alive**: 5-minute scheduled task prevents model unload
+- **Timeout**: 240 seconds for OkHttp (covers startup + 60-80s inference)
+
+---
+
+### Key Endpoints
+
+#### Authentication
+- `POST /api/v1/auth/register` - Register new user
+- `POST /api/v1/auth/login` - Login and get JWT token
+
+#### Document Management
+- `POST /api/v1/documents/upload` - Upload document for processing
+- `GET /api/v1/documents/{id}` - Get document details
+- `GET /api/v1/documents/{id}/ocr-result` - Get OCR text result
+
+#### Field Extraction
+- `GET /api/v1/documents/{id}/fields` - Get extracted fields with confidence scores
+
+#### Approvals
+- `GET /api/v1/approvals/my-tasks` - Get pending approval tasks
+- `GET /api/v1/approvals/{taskId}` - Get approval task details
+- `POST /api/v1/approvals/{taskId}/approve` - Approve with optional comments
+- `POST /api/v1/approvals/{taskId}/reject` - Reject with reason
+
+---
