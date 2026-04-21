@@ -8,7 +8,6 @@ An enterprise-grade document processing platform that combines OCR technology, A
 
 - **Document Processing Pipeline** - Upload → OCR (Tesseract) → Field Extraction (Phi LLM) → Approval Workflows
 - **Intelligent Field Extraction** - LLM-based extraction with text chunking, keyword filtering and confidence scoring
-- **Multi-Level Approvals** - Task routing to reviewers with email notifications and human validation
 - **JWT Authentication & RBAC** - Secure token-based auth with role-based access control
 - **Async Processing** - RabbitMQ-driven background jobs for non-blocking document processing
 - **Multi-Format Support** - PDF, Word, Excel, images and more via Tika + Tesseract OCR
