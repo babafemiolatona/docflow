@@ -121,3 +121,57 @@ An enterprise-grade document processing platform that combines OCR technology, A
 - **OkHttp Timeout**: 240 seconds (covers startup + inference)
 
 ---
+
+## 🚀 Installation & Setup
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/babafemiolatona/docflow.git
+cd docflow
+```
+
+### 2. Environment Configuration
+Create a `.env` file in the project root:
+
+```env
+# Database
+POSTGRES_USER=docflow
+POSTGRES_PASSWORD=secure_password_here
+POSTGRES_DB=docflowdb
+
+# RabbitMQ
+RABBITMQ_USER=guest
+RABBITMQ_PASSWORD=guest
+
+# MinIO
+MINIO_ROOT_USER=minioadmin
+MINIO_ROOT_PASSWORD=minioadmin
+MINIO_ENDPOINT=http://minio:9000
+MINIO_ACCESS_KEY=minioadmin
+MINIO_SECRET_KEY=minioadmin
+MINIO_BUCKET_NAME=docflow-documents
+
+# JWT
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_ACCESS_TOKEN_EXPIRATION=900000
+JWT_REFRESH_TOKEN_EXPIRATION=604800000
+
+# Server
+SERVER_PORT=8080
+```
+
+### 3. Build & Run with Docker Compose
+
+```bash
+# Start services
+docker compose up --build
+
+# View logs
+docker compose logs -f app
+
+# Stop services
+docker compose down
+
+# Stop services and remove volumes
+docker compose down -v
+```
