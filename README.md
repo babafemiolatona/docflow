@@ -96,3 +96,28 @@ An enterprise-grade document processing platform that combines OCR technology, A
 - **JWT** - Token-based authentication
 - **SpringDoc OpenAPI** - Swagger/OpenAPI documentation
 - **Jackson** - JSON serialization/deserialization
+
+---
+
+## Prerequisites
+
+### System Requirements
+- **Docker & Docker Compose** - For containerized services
+- **Java 17+** - For local development (or use Docker)
+- **Maven 3.8+** - Build tool (or use `./mvnw`)
+- **WSL 2 (if on Windows)** - With 8GB allocated memory for Ollama/LLM
+
+### Services
+- **PostgreSQL 16** - Database
+- **Redis 7** - Cache layer
+- **RabbitMQ 3.12** - Message broker
+- **MinIO** - S3-compatible storage
+- **Ollama** - LLM runtime (for field extraction)
+
+### Memory & Resources
+- **WSL/Docker**: Minimum 8GB RAM for Ollama + Phi model
+- **Phi Model**: ~2.0GB RAM usage
+- **Ollama Startup**: ~118-125 seconds (cold start)
+- **OkHttp Timeout**: 240 seconds (covers startup + inference)
+
+---
