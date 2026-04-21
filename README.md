@@ -174,6 +174,26 @@ docker compose down
 # Stop services and remove volumes
 docker compose down -v
 ```
+
+### 4. Local Development (Without Docker)
+
+If running locally without Docker:
+
+```bash
+# Install dependencies
+mvn clean install
+
+# Start PostgreSQL, Redis, RabbitMQ manually or use Docker for only these:
+docker-compose up postgres redis rabbitmq minio ollama -d
+
+# Run the application
+mvn spring-boot:run
+
+# Or build JAR
+mvn package
+java -jar target/docflow-0.0.1-SNAPSHOT.jar
+```
+
 ---
 
 ## Configuration
@@ -216,6 +236,13 @@ The application connects to Ollama at `http://ollama:11434` (Docker) or `http://
 - **Timeout**: 240 seconds for OkHttp (covers startup + 60-80s inference)
 
 ---
+
+## API Documentation
+
+The API documentation is available at:
+```
+http://localhost:8080/swagger-ui.html
+```
 
 ### Key Endpoints
 
