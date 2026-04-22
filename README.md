@@ -265,3 +265,22 @@ http://localhost:8080/swagger-ui.html
 - `POST /api/v1/approvals/{taskId}/reject` - Reject with reason
 
 ---
+
+## Contributing
+
+### Commit Messages
+```
+feat: add new feature
+fix: resolve bug in field extraction
+docs: update README
+refactor: extract service logic
+test: add unit tests for workflow
+build: update dependencies
+```
+
+### Pull Request Process
+1. Create feature branch: `git checkout -b feature/your-feature`
+2. Make changes following code style
+3. Add/update tests for new features
+4. Update documentation
+5. Submit PR with detailed description
